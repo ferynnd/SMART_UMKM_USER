@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/dashboardFragment"
+    android:id="@+id/user_navigation">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="dev.kelompokceria.smartumkm.user.ui.DashboardFragment"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/transactionFragment"
+        android:name="dev.kelompokceria.smartumkm.user.ui.TransactionFragment"
+        tools:layout="@layout/fragment_transaction" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="dev.kelompokceria.smartumkm.user.ui.ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/listTransactionFragment"
+        android:name="dev.kelompokceria.smartumkm.user.ui.ListTransactionFragment"
+        tools:layout="@layout/fragment_list_transaction" />
+
+
+</navigation>

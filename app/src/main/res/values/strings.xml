@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SMART UMKM</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="dashboard_name"> Dashboard </string>
+    <string name="profile_name"> Profile </string>
+    <string name="transaction_name"> List Transaction </string>
+</resources>
