@@ -11,6 +11,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import dev.kelompokceria.smart_umkm.ui.AboutUsFragment
+import dev.kelompokceria.smart_umkm.ui.FaqFragment
+import dev.kelompokceria.smart_umkm.ui.MoreInfoFragment
 import dev.kelompokceria.smartumkm.user.data.helper.Constant
 import dev.kelompokceria.smartumkm.user.data.helper.PreferenceHelper
 import dev.kelompokceria.smart_umkm.viewmodel.UserViewModel
@@ -50,7 +53,6 @@ class ProfileFragment : Fragment() {
                 if (isConnected) {
                     userViewModel.getUserByUsername(username)
                 } else {
-                    Toast.makeText(requireContext(), "Network Disconnected", Toast.LENGTH_SHORT).show()
                     userViewModel.getUserByNameRoom(username)
                 }
 
@@ -72,7 +74,7 @@ class ProfileFragment : Fragment() {
 
         binding.btnLogout.setOnClickListener {
             val dialogBuilder = AlertDialog.Builder(requireContext())
-            dialogBuilder.setMessage("Apakah Anda yakin ingin logout")
+            dialogBuilder.setMessage("Apakah Anda yakin ingin logout ?")
                 .setCancelable(false)
                 .setPositiveButton("Ya") { _, _ ->
                     sharedPref.clear()
@@ -87,6 +89,30 @@ class ProfileFragment : Fragment() {
             alert.setTitle("Logout")
             alert.show()
 
+        }
+
+        binding.btnMI.setOnClickListener{
+            val fragment = MoreInfoFragment()
+            val pindah = parentFragmentManager.beginTransaction()
+            pindah.replace(R.id.navigation_fragment, fragment)
+            pindah.addToBackStack(null)
+            pindah.commit()
+        }
+
+        binding.btnFAQ.setOnClickListener{
+            val fragment = FaqFragment()
+            val pindah = parentFragmentManager.beginTransaction()
+            pindah.replace(R.id.navigation_fragment, fragment)
+            pindah.addToBackStack(null)
+            pindah.commit()
+        }
+
+        binding.btnAbout.setOnClickListener{
+            val fragment = AboutUsFragment()
+            val pindah = parentFragmentManager.beginTransaction()
+            pindah.replace(R.id.navigation_fragment, fragment)
+            pindah.addToBackStack(null)
+            pindah.commit()
         }
 
         return binding.root

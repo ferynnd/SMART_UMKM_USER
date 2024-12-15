@@ -52,6 +52,8 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
 
+            } else {
+                showConnectionErrorDialog()
             }
         }
 
@@ -83,6 +85,16 @@ class LoginActivity : AppCompatActivity() {
     private fun navigateToRole(role: UserRole) {
         startActivity(Intent(this, UserActivity::class.java))
         finish()
+    }
+
+    private fun showConnectionErrorDialog() {
+        val connectionErrorDialog = ConnectionDialog(this)
+        connectionErrorDialog.show {
+            // This is the retry callback
+            // Implement your retry logic here
+            Toast.makeText(this, "Retrying connection...", Toast.LENGTH_SHORT).show()
+            // Retry the connection
+        }
     }
 
 

@@ -16,7 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="13dp">
 
             <ImageView
                 android:id="@+id/viewImage"
@@ -34,7 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SEBLAK MEWEK"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_bold"
                 android:textSize="16sp"
                 android:layout_marginStart="10dp"
                 android:textStyle="bold"
@@ -45,6 +46,7 @@
                 android:id="@+id/viewPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
                 android:text="Rp.20.000"
                 android:textColor="@color/gray_100"
                 android:textSize="14sp"
@@ -56,7 +58,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MAKANAN"
-                android:textColor="@android:color/black"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textColor="@color/red"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@id/viewPrice"
                 app:layout_constraintTop_toBottomOf="@id/viewPrice" />

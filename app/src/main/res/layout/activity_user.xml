@@ -19,34 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/user_navigation"
         app:defaultNavHost="true" />
-
-<!--    <com.google.android.material.card.MaterialCardView-->
-<!--        android:id="@+id/layoutNavUser"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="80dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        android:layout_marginHorizontal="40dp"-->
-<!--        app:backgroundTint="@color/blue"-->
-<!--        android:background="@color/blue"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        app:cardCornerRadius="30dp"-->
-<!--          app:cardElevation="5dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent">-->
-
-<!--           <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--                android:id="@+id/bottomNavUser"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="80dp"-->
-<!--               app:backgroundTint="@color/blue"-->
-<!--                app:itemIconTint="@color/white"-->
-<!--                android:layout_alignParentBottom="true"-->
-<!--                app:labelVisibilityMode="unlabeled"-->
-<!--                app:menu="@menu/user_menu"/>-->
-<!--    </com.google.android.material.card.MaterialCardView>-->
-<!--    -->
-
         <com.google.android.material.card.MaterialCardView
                     android:id="@+id/layoutNavUser"
                     android:layout_width="match_parent"
