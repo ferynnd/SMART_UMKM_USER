@@ -1,7 +1,6 @@
 package dev.kelompokceria.smart_umkm.viewmodel
 
 import android.app.Application
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -13,7 +12,6 @@ import dev.kelompokceria.smartumkm.user.data.api.UpdateTransactionResponse
 import dev.kelompokceria.smartumkm.user.model.Transaction
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 
 class TransactionViewModel (application: Application) : AndroidViewModel(application) {
@@ -90,19 +88,15 @@ class TransactionViewModel (application: Application) : AndroidViewModel(applica
     fun refreshDelete(user: String) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                // Ambil transaksi dari API
-                val apiTransaction = repository.getTransactionsFromApi(user)
-
                 // Ambil transaksi yang ada di ROOM
                 val existingTransaction = repository.getAllTransactions()
 
-                val transactionsToSync = existingTransaction.filter { localTransaction ->
-                        apiTransaction.none { apiTransaction ->
-                            apiTransaction.id == localTransaction.id
-                        }
-                }
+                // Hapus transaksi yang user-nya tidak sama dengan parameter `user`
+            val transactionsToDelete = existingTransaction.filter { localTransaction ->
+                localTransaction.user != user
+            }
 
-                repository.deleteAlll(transactionsToSync)
+            repository.deleteAlll(transactionsToDelete)
 
                 val updatedTransaction = repository.getAllTransactions()
                 _allTransac.postValue(updatedTransaction)

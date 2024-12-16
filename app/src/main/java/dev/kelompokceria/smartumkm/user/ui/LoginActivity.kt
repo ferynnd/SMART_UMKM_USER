@@ -74,7 +74,8 @@ class LoginActivity : AppCompatActivity() {
     private fun checkLogin() {
         if (sharedPref.getBoolean(Constant.PREF_IS_LOGIN)) {
             val role = sharedPref.getString(Constant.PREF_USER_ROLE)
-            if (role == UserRole.USER.toString()) {
+            val cekRole = UserRole.USER.toString()
+            if (role == cekRole) {
                 navigateToRole(UserRole.USER)
             } else {
                 sharedPref.clear()
@@ -83,8 +84,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun navigateToRole(role: UserRole) {
-        startActivity(Intent(this, UserActivity::class.java))
-        finish()
+        if (role == UserRole.USER) {
+            startActivity(Intent(this, UserActivity::class.java))
+            finish()
+        } else {
+            Toast.makeText(this,"Login Tidak Sesuai Role", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun showConnectionErrorDialog() {
